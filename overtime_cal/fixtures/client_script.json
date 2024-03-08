@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Payroll Entry",
+  "enabled": 1,
+  "modified": "2024-01-12 14:57:43.670056",
+  "module": "overtime_cal",
+  "name": "Payroll-Set Overtime",
+  "script": "frappe.ui.form.on('Payroll Entry', {\n    refresh: function(frm) {\n            if(frm.doc.docstatus==1)\n            {\n                frappe.call({\n                method: \"overtime_cal.overtime_cal.salary_slip_overtime.set_overtime\",\n                args:{\n                    payroll_name:frm.doc.name\n                },\n                callback: function(response) {\n                    if (!response.exc) {\n                        \n                    } \n                }\n                });\n        }\n    }\n});\n\n",
+  "view": "Form"
+ }
+]

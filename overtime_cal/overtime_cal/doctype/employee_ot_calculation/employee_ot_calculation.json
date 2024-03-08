@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:OTC-{###}",
+ "creation": "2023-12-09 18:23:05.955233",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_date",
+  "column_break_5kecz",
+  "to_date",
+  "section_break_b4rht",
+  "select_all",
+  "supervisor_list",
+  "get_overtime",
+  "employee_overtime_amount",
+  "download_file",
+  "employee_overtime",
+  "download",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "column_break_5kecz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_all",
+   "fieldtype": "Button",
+   "label": "Select All"
+  },
+  {
+   "fieldname": "get_overtime",
+   "fieldtype": "Button",
+   "label": "Get Overtime"
+  },
+  {
+   "fieldname": "employee_overtime",
+   "fieldtype": "Table",
+   "label": "Employee Overtime List",
+   "options": "EOC Employee Overtime"
+  },
+  {
+   "fieldname": "section_break_b4rht",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "supervisor_list",
+   "fieldtype": "Table",
+   "label": "OT Form List",
+   "options": "EOC Employee LIst"
+  },
+  {
+   "fieldname": "employee_overtime_amount",
+   "fieldtype": "Table",
+   "label": "Total Overtime Hours Calculation",
+   "options": "Employee Overtime Amount"
+  },
+  {
+   "fieldname": "download_file",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Download File"
+  },
+  {
+   "fieldname": "download",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Download File"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee OT Calculation",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-03-08 17:57:38.862418",
+ "modified_by": "Administrator",
+ "module": "overtime_cal",
+ "name": "Employee OT Calculation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

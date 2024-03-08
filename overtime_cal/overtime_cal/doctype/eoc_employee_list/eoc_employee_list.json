@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-11 11:23:04.686337",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ot_id",
+  "supervisor_id",
+  "supervisor_name",
+  "date",
+  "check"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "ot_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "OT ID",
+   "options": "OT Form"
+  },
+  {
+   "columns": 2,
+   "fieldname": "supervisor_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supervisor ID"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "ot_id.supervisor_name",
+   "fieldname": "supervisor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supervisor Name"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "ot_id.date",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "check",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Check"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-12-22 14:38:23.261929",
+ "modified_by": "Administrator",
+ "module": "overtime_cal",
+ "name": "EOC Employee LIst",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

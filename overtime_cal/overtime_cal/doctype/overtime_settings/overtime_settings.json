@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-09 10:32:05.767431",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "min_required_overtime",
+  "working_hours",
+  "overtime_rate",
+  "grace_time"
+ ],
+ "fields": [
+  {
+   "default": "00:00:00",
+   "fieldname": "min_required_overtime",
+   "fieldtype": "Data",
+   "label": "Min Required Overtime"
+  },
+  {
+   "default": "8:00:00",
+   "fieldname": "working_hours",
+   "fieldtype": "Data",
+   "label": "Working Hours"
+  },
+  {
+   "default": "10.0",
+   "fieldname": "overtime_rate",
+   "fieldtype": "Data",
+   "label": "Overtime Rate"
+  },
+  {
+   "default": "00:45:00",
+   "fieldname": "grace_time",
+   "fieldtype": "Data",
+   "label": "Grace time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-09 14:23:15.136827",
+ "modified_by": "Administrator",
+ "module": "overtime_cal",
+ "name": "Overtime Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

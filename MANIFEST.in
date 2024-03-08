@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include overtime_cal *.css
+recursive-include overtime_cal *.csv
+recursive-include overtime_cal *.html
+recursive-include overtime_cal *.ico
+recursive-include overtime_cal *.js
+recursive-include overtime_cal *.json
+recursive-include overtime_cal *.md
+recursive-include overtime_cal *.png
+recursive-include overtime_cal *.py
+recursive-include overtime_cal *.svg
+recursive-include overtime_cal *.txt
+recursive-exclude overtime_cal *.pyc
