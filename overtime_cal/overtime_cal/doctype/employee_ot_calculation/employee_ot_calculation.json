@@ -11,6 +11,10 @@
   "from_date",
   "column_break_5kecz",
   "to_date",
+  "column_break_kczsu",
+  "month",
+  "column_break_j8ged",
+  "year",
   "section_break_b4rht",
   "select_all",
   "supervisor_list",
@@ -88,12 +92,32 @@
    "options": "Employee OT Calculation",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kczsu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "label": "Month",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_j8ged",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-08 17:57:38.862418",
+ "modified": "2024-03-18 14:37:30.436529",
  "modified_by": "Administrator",
  "module": "overtime_cal",
  "name": "Employee OT Calculation",
@@ -110,6 +134,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

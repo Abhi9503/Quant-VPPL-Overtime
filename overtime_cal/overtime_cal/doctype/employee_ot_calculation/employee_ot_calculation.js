@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Employee OT Calculation', {
-	refresh: function(frm) {
+    refresh: function(frm) {
 		$('.layout-side-section').hide();
 		$('.layout-main-section-wrapper').css('margin-left', '0');
 	},
@@ -14,8 +14,11 @@ frappe.ui.form.on('Employee OT Calculation', {
         frm.clear_table("employee_overtime");
 		frm.refresh_field('employee_overtime');
 		frm.call({
-			method:'get_ot_form',
-			doc:frm.doc
+			method:"get_month_dates",
+			doc:frm.doc,
+			args:{
+				"input_date":frm.doc.from_date
+			}
 		})
 	},
     from_date: function(frm) {
@@ -26,8 +29,11 @@ frappe.ui.form.on('Employee OT Calculation', {
         frm.clear_table("employee_overtime");
 		frm.refresh_field('employee_overtime');
 		frm.call({
-			method:'get_ot_form',
-			doc:frm.doc
+			method:"get_month_dates",
+			doc:frm.doc,
+			args:{
+				"input_date":frm.doc.from_date
+			}
 		})
 	},
     select_all: function(frm) {
@@ -49,6 +55,8 @@ frappe.ui.form.on('Employee OT Calculation', {
 		})
 	}
 });
+
+
 
 
 frappe.ui.form.on('Employee OT Calculation', {
@@ -94,27 +102,6 @@ frappe.ui.form.on('Employee OT Calculation', {
 });
 
 
-// frappe.ui.form.on('Employee OT Calculation', {
-//     refresh: function(frm) {
-//         frm.fields_dict['from_date'].$input.css('background-color', '#D2E9FB');
-//         frm.fields_dict['to_date'].$input.css('background-color', '#D2E9FB');
-// 		//frm.fields_dict['supervisor_list'].grid.get_field('supervisor_name').$input.css('background-color', '#D2E9FB');
-// 		console.log("Script is running!");
-//     }
-// });
-
-// frappe.ui.form.on('EOC Employee LIst', {
-//     ot_id: function(frm, cdt, cdn) {
-//         frappe.after_ajax(function() {
-//             var child = locals[cdt][cdn];
-//             var parent = frm.doc;
-
-//             if ('supervisor_id' in child.fields_dict) {
-//                 child.fields_dict['supervisor_id'].$input.css('background-color', '#D2E9FB');
-//             }
-//         });
-//     }
-// });
 
 
 frappe.ui.form.on('Employee OT Calculation', {
@@ -128,42 +115,10 @@ frappe.ui.form.on('Employee OT Calculation', {
    
     }
 });
-
-
 frappe.ui.form.on('EOC Employee LIst', {
     to_date: function(frm) {
         // Style fields in the main table
         frm.fields_dict['supervisor_name'].$input.css('background-color', '#D2E9FB');
         frm.fields_dict['supervisor_id'].$input.css('background-color', '#D2E9FB');
-
-        console.log("Script is running!");
     }
 });
-
-
-
-// frappe.ui.form.on('Employee OT Calculation', {
-//     refresh: function(frm) {
-//         // select the first row in the child table
-//         var rows = document.getElementsByClassName("grid-row");
-//             for (var i = 0; i < rows.length; i++) {
-//               rows[i].style.backgroundColor = "#D2E9FB";
-//             }
-//     }
-// });
-
-
-// frappe.ui.form.on('EOC Employee LIst', {
-//     ot_id: function(frm, cdt, cdn) {
-//         var child = locals[cdt][cdn];
-//         var parent = frm.doc;
-// 		frappe.msgprint("HIIII.......")
-// 		// var supervisorField = childRow.fields_dict['supervisor_id'].$input;
-// 		// supervisorField.css('background-color', '#D2E9FB');
-//         // Check if the supervisor_id field exists in the child table
-//         if ('supervisor_id' in child.fields_dict) {
-//             child.fields_dict['supervisor_id'].$input.css('background-color', '#D2E9FB');
-//         }
-//     }
-// });
-

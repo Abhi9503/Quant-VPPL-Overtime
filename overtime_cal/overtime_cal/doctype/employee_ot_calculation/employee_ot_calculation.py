@@ -8,10 +8,11 @@ from datetime import datetime
 from datetime import timedelta
 from datetime import datetime as dt, timedelta, time
 import csv
+from dateutil import parser
 import calendar
+from frappe import _
 
 class EmployeeOTCalculation(Document):
-	
 	@frappe.whitelist()
 	def get_ot_form(self):
 		if self.from_date and self.to_date:
@@ -45,6 +46,7 @@ class EmployeeOTCalculation(Document):
 		month=int(lst[1])
 		date=int(lst[2])
 		num_days=calendar.monthrange(int(year), int(month))[1]
+		from_date =datetime.strptime(self.from_date, '%Y-%m-%d').date()
 		for i in self.get('supervisor_list'):
 			if i.check :
 				emp = frappe.get_all("Child OT Form", 
@@ -52,13 +54,27 @@ class EmployeeOTCalculation(Document):
 									fields=["worker_name","worker_id","employee_overtime_hrs"])  
 
 				for e in emp:	
-					basic_c=dearness_allowance_c=fixed_allowance_c=personal_pay_c = 0
-					result = frappe.get_value("Employee Payroll", {"parent": e.worker_id}, ["basic_c", "dearness_allowance_c", "fixed_allowance_c", "personal_pay_c"])
-					if result:
-						basic_c, dearness_allowance_c, fixed_allowance_c, personal_pay_c = result
+					basic_c = personal_pay_c = fixed_allowance_c = dearness_allowance_c = 0
+					employee_payroll_li = frappe.db.sql("""
+						SELECT basic_c, hra_c, personal_pay_c, fixed_allowance_c, dearness_allowance_c, medical_allowance_c,
+							from_date, petrol_allowance, p_allowance_in_amount
+						FROM `tabEmployee Payroll` 
+						WHERE parent = '{0}' ORDER BY from_date DESC
+					""".format(e.worker_id), as_dict=True)
+					
+     
+					if employee_payroll_li:
+						for p in employee_payroll_li:
+							if( p["from_date"]):
+								if from_date >= p["from_date"]:
+									basic_c = p["basic_c"]
+									personal_pay_c = p["personal_pay_c"]
+									fixed_allowance_c = p["fixed_allowance_c"]   
+									dearness_allowance_c = p["dearness_allowance_c"]
+									break
 					rate=0
 					total_amt=(basic_c+dearness_allowance_c+fixed_allowance_c+personal_pay_c)/num_days
-					rate=total_amt/8
+					rate=total_amt/8	
 					self.append('employee_overtime',{
 								"ot_id":i.ot_id,	
 								"supervisor_name":i.supervisor_name,
@@ -135,4 +151,20 @@ class EmployeeOTCalculation(Document):
 			for row in data:
 				writer.writerow(row)
 		return file_path	
-	
+    
+	@frappe.whitelist()
+	def get_month_dates(self,input_date):
+		selected_date = str(input_date)
+		date_li = selected_date.split("-")
+		year= int(date_li[0])
+		month_num = int(date_li[1])
+		num_days_in_month = calendar.monthrange(year,month_num)[1]
+		start_date =datetime(year,month_num, 1).date()
+		end_date =datetime(year, month_num, num_days_in_month).date()
+		date_li = str(start_date).split("-")
+		self.year = date_li[0]
+		month_num = int(date_li[1])
+		self.month = _(calendar.month_name[month_num]) 
+		self.from_date=start_date
+		self.to_date=end_date
+		self.get_ot_form()
