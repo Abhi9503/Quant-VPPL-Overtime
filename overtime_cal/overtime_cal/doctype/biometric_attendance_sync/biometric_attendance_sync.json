@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-20 16:16:15.702625",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_date",
+  "column_break_a96qx",
+  "to_date",
+  "column_break_irpig",
+  "sync",
+  "section_break_q6w0v",
+  "machine_configuration"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "column_break_a96qx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_irpig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sync",
+   "fieldtype": "Button",
+   "label": "Sync "
+  },
+  {
+   "fieldname": "section_break_q6w0v",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "machine_configuration",
+   "fieldtype": "Table",
+   "label": "Machine Configuration",
+   "options": "Machine Configuration"
+  },
+  {
+   "default": "Today()",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-03-20 17:22:58.574641",
+ "modified_by": "Administrator",
+ "module": "overtime_cal",
+ "name": "Biometric Attendance Sync",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

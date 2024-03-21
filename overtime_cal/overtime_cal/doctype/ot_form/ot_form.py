@@ -10,10 +10,10 @@ class OTForm(Document):
 			i.date=self.date
    
 	@frappe.whitelist()
-	def check_repeat_entry(self,emp_id,dept,idx):
+	def check_repeat_entry(self,emp_id,dept,idx,date):
 		for i in self.get("child_ot_form"):
-			if(emp_id==i.worker_id and dept==i.department and i.idx!=idx):
-				frappe.throw(f"Employee {emp_id} is already present in this table")
+			if(emp_id==i.worker_id and dept==i.department and i.idx!=idx and date==i.date):
+				frappe.throw(f"Employee {emp_id} is already present in this table for date {date}")
 			
 
 				

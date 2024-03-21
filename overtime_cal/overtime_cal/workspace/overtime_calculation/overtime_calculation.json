@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"otlUF1jxuD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Overtime Calculation</span>\",\"col\":12}},{\"id\":\"yPKfEFoQQU\",\"type\":\"card\",\"data\":{\"card_name\":\"Overtime Form\",\"col\":4}},{\"id\":\"LvtGxuudNE\",\"type\":\"card\",\"data\":{\"card_name\":\"Overtime Calculation \",\"col\":4}}]",
+ "content": "[{\"id\":\"otlUF1jxuD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Overtime Calculation</span>\",\"col\":12}},{\"id\":\"yPKfEFoQQU\",\"type\":\"card\",\"data\":{\"card_name\":\"Overtime Form\",\"col\":4}},{\"id\":\"LvtGxuudNE\",\"type\":\"card\",\"data\":{\"card_name\":\"Overtime Calculation \",\"col\":4}},{\"id\":\"u3IkwyTFh_\",\"type\":\"card\",\"data\":{\"card_name\":\"Biometric Attendance Sync\",\"col\":4}}]",
  "creation": "2023-12-19 11:46:40.721342",
  "custom_blocks": [],
  "docstatus": 0,
@@ -47,10 +47,28 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Attendance Sync",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Sync",
+   "link_count": 0,
+   "link_to": "Biometric Attendance Sync",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-03-07 10:05:06.409643",
- "modified_by": "abhishek.shinde@erpdata.in",
+ "modified": "2024-03-20 17:31:48.322950",
+ "modified_by": "Administrator",
  "module": "overtime_cal",
  "name": "Overtime Calculation",
  "number_cards": [],

@@ -21,7 +21,7 @@ frappe.ui.form.on('Employee OT Calculation', {
 });
 
 frappe.ui.form.on('Child OT Form', {
-    worker_id: function(frm,cdt,cdn) {
+    date: function(frm,cdt,cdn) {
         var r=locals[cdt][cdn];
         frm.call({
             method:'check_repeat_entry',
@@ -29,7 +29,8 @@ frappe.ui.form.on('Child OT Form', {
             args:{
                 "emp_id":r.worker_id,
                 "dept":r.department,
-                "idx":r.idx
+                "idx":r.idx,
+                "date":r.date
             }
         })
     }
