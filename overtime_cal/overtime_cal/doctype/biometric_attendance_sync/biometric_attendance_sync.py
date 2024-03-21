@@ -7,7 +7,6 @@ import zk
 from datetime import datetime
 import re  
 
-
 class BiometricAttendanceSync(Document):
 	@frappe.whitelist()
 	def check_dates(self):
