@@ -23,7 +23,7 @@ class BiometricAttendanceSync(Document):
 	def sync_data(self):
 		dict={
 			'2024-03-20-3107': ['3107','2024-03-20 00:00:00', '2024-03-20 08:00:00','2024-03-20 08:05:00','2024-03-20 08:10:00'], 
-			'2024-03-19-3107': ['3107','2024-03-19 23:55:00','2024-03-19 23:59:00'], 
+			'2024-03-19-3107': ['3107','2024-03-19 23:59:00','2024-03-19 23:59:00'], 
 		}
 		if(not self.from_date or not self.to_date):
 			frappe.throw("Please select from date and to date")
